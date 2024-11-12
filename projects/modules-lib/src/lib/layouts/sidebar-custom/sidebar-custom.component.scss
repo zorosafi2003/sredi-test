@@ -1,0 +1,13 @@
+:host {
+    padding: 32px 16px ;
+    display: block;
+}
+
+.logo__container{
+    display: flex;
+    justify-content: center;
+
+    > img{
+        object-fit: cover;
+    }
+}

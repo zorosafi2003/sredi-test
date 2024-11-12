@@ -1,0 +1,73 @@
+:root {
+    --border-color: #D1D1D1;
+}
+
+/* Change the border color */
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+    border-color: var(--border-color) !important;
+}
+
+/* Change the border width */
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline .mdc-notched-outline__trailing {
+    border-width: 1.5px !important;
+}
+
+/* Change the border focused color */
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+    border-color: var(--color-primary) !important;
+}
+
+/* Change the border hover color */
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing {
+    border-color: var(--color-primary) !important;
+}
+
+
+mat-form-field {
+    &.search__mat-form-field {
+        height: 40px;
+
+        .mat-mdc-text-field-wrapper {
+            height: 40px !important;
+        }
+
+        .mat-mdc-form-field-flex {
+            margin-top: -7px !important;
+        }
+    }
+
+    &.fiscal-Perios__mat-form-field {
+        height: 56px;
+
+        .mat-mdc-text-field-wrapper {
+            height: 56px !important;
+        }
+
+        .mat-mdc-form-field-infix {
+            padding-top: 25px;
+            font-weight: 500;
+        }
+
+        .mat-mdc-notch-piece {
+            border-top: 1px solid black;
+        }
+
+        .mdc-floating-label {
+            margin-top: 15px;
+        }
+
+        .mat-mdc-form-field-icon-suffix {
+            margin-top: -10px;
+        }
+    }
+
+    color: #D1D1D1;
+}
