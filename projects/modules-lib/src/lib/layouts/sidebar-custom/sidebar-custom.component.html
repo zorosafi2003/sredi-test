@@ -1,3 +1,63 @@
 <div class="logo__container">
-   <img src="assets/images/logo.png" alt="">
+    <img src="assets/images/logo.png" alt="">
+</div>
+
+<div class="user-info__container">
+    <div class="user-info__container--left">
+        <img src="assets/images/avatar.png" alt="">
+        <div style="align-content: end;">
+            <p class="user-name__p">John Doe</p>
+            <p class="user-role__p">Admin</p>
+        </div>
+    </div>
+    <div class="user-info__container--right">
+        <button mat-icon-button [matMenuTriggerFor]="userMenu">
+            <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+        <mat-menu #userMenu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>logout</mat-icon>
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </div>
+</div>
+
+<div class="general-menu__container">
+    <mat-nav-list dense>
+        <div mat-subheader class="general-menu--title">General</div>
+        @for( item of menuItemArr() ; track item.route){
+        <a mat-list-item [routerLink]="[item.route]" routerLinkActive="router-link-active">
+            <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+            <span matListItemTitle>{{item.label}}</span>
+        </a>
+
+        <mat-nav-list dense>
+            @for( item of item.children ; track item.route){
+            <a mat-list-item [routerLink]="[item.route]" routerLinkActive="router-link-active">
+                <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+                <span matListItemTitle>{{item.label}}</span>
+            </a>
+            }
+        </mat-nav-list>
+        }
+    </mat-nav-list>
+</div>
+
+<div class="tools__container">
+    <mat-nav-list dense>
+        <div mat-subheader class="tools--title">Tools</div>
+        <a mat-list-item [routerLink]="['/settings']" routerLinkActive="router-link-active">
+            <mat-icon matListItemIcon>settings</mat-icon>
+            <span matListItemTitle>Account&Settings </span>
+        </a>
+        <a mat-list-item [routerLink]="['/help']" routerLinkActive="router-link-active">
+            <mat-icon matListItemIcon>help</mat-icon>
+            <span matListItemTitle>Help</span>
+        </a>
+        <a mat-list-item >
+            <mat-icon matListItemIcon>nightlight</mat-icon>
+            <span matListItemTitle>DarkMode </span>
+        </a>
+    </mat-nav-list>
 </div>
