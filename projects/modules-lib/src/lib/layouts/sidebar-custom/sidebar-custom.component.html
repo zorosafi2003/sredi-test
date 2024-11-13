@@ -2,7 +2,7 @@
     <img src="assets/images/logo.png" alt="">
 </div>
 
-<div class="user-info__container">
+<div class="user-info__container" [ngClass]="{'hide-container' :isCollapsed() == true}">
     <div class="user-info__container--left">
         <img src="assets/images/avatar.png" alt="">
         <div style="align-content: end;">

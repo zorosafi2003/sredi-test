@@ -1,1 +1,37 @@
-<p>navbar-custom works!</p>
+<div class="sidenav--left__container">
+    <button mat-icon-button class="example-icon" (click)="onToggleCollapsed()">
+        @if (!isSmallScreen()) {
+        <mat-icon>{{isCollapsed() ? 'right_panel_close': 'left_panel_close'}}</mat-icon>
+        }
+        @else{
+        <mat-icon>menu</mat-icon>
+        }
+    </button>
+
+    <mat-form-field appearance="outline" class="search__mat-form-field" *ngIf="!isSmallScreen()">
+        <input matInput placeholder="Search" [formControl]="fCtrls.search">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+</div>
+<span class="example-spacer"></span>
+<button matBadge="1" mat-icon-button class="mat-badge-error favorite-icon"
+    aria-label="Example icon-button with heart icon">
+    <mat-icon>mail</mat-icon>
+</button>
+<button matBadge="8" mat-icon-button class="mat-badge-error" aria-label="Example icon-button with share icon">
+    <mat-icon>notifications</mat-icon>
+</button>
+@if (!isSmallScreen()) {
+<mat-divider vertical="true"></mat-divider>
+<mat-form-field class="fiscal-Perios__mat-form-field" appearance="outline" [floatLabel]="'always'">
+    <mat-label>Fiscal Period</mat-label>
+    <mat-date-range-input [rangePicker]="campaignOnePicker">
+        <input matStartDate placeholder="Start date" [formControl]="fCtrls.dateFrom">
+        <input matEndDate placeholder="End date" [formControl]="fCtrls.dateTo">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker">
+        <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+    </mat-datepicker-toggle>
+    <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+</mat-form-field>
+}

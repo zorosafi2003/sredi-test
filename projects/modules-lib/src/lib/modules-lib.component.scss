@@ -54,7 +54,7 @@ mat-toolbar {
       width: 15px;
     }
   }
-  
+
 
   // ::ng-deep .mat-mdc-text-field-wrapper {
   //   height: 40px !important;
@@ -90,4 +90,8 @@ mat-divider {
 
 }
 
-
+mat-sidenav,
+mat-sidenav-container,
+mat-sidenav-content {
+  transition: all 500ms ease-in-out;
+}

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,16 +7,19 @@ import { MenuItemDto } from '../../../../../core-lib/src/lib/dtos/menu-item.dto'
 import { CommonModule } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'lib-sidebar-custom',
   standalone: true,
+  changeDetection:ChangeDetectionStrategy.OnPush,
   imports: [MatMenuModule, MatIconModule, MatButtonModule , CommonModule ,MatListModule,RouterModule],
   templateUrl: './sidebar-custom.component.html',
   styleUrl: './sidebar-custom.component.scss'
 })
 export class SidebarCustomComponent {
 
+  isCollapsed = input<boolean>(false);
   menuItemArr = signal<MenuItemDto[]>([
     {
       label: 'Overview',
@@ -56,4 +59,7 @@ export class SidebarCustomComponent {
     }
   ]);
 
+  constructor(private _Store:Store){
+
+  }
 }

@@ -1,0 +1,52 @@
+:host {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+  transition: all 500ms ease-in-out;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+::ng-deep {
+  .mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before {
+    border-radius: 5px;
+  }
+
+  .mat-badge-content {
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    border-radius: 5px;
+    height: 15px;
+    width: 15px;
+  }
+}
+
+mat-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.sidenav--left__container {
+  display: flex;
+  justify-content: center;
+  gap: 22.5px;
+}
+
+mat-divider {
+  border-right-style: unset !important;
+  border-right-style: unset !important;
+  border-right-width: unset !important;
+  height: 54px;
+  border: 1px solid #C9C9C9;
+  border-right-color: #C9C9C9 !important;
+
+}
+
+.hide-container {
+  opacity: 0;
+  height: 0px;
+}

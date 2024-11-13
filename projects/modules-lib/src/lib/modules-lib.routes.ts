@@ -10,7 +10,7 @@ export const modulesLibRoutes: Routes = [
         children: [
             {
                 path: 'dashboard',
-                component: DashboardComponent,
+                loadComponent: () => import("./admin/views/dashboard/dashboard.component").then(x=>x.DashboardComponent) ,
                 title: 'Dashboard'
             }
         ]
