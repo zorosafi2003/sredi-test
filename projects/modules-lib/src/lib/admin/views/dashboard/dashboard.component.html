@@ -1,1 +1,17 @@
-<p>dashboard works!</p>
+<div class="dashboard__container">
+    <h2 class="page-title">Welcome Back, John Doe!</h2>
+    @if (navbarDateFrom() || navbarDateTo()) {
+    <span class="selected-period__badge">{{navbarDateFrom()|date:'MMM d, y'}} - {{navbarDateTo()|date:'MMM d, y'}}
+    </span>
+    }
+    <p class="active-integration__container">
+        <span>Active Integrations:</span>
+        <span class="integration__badge">JIRA</span>
+        <span class="integration__badge">CLICKUP</span>
+        <span class="integration__badge">AZURE</span>
+    </p>
+</div>
+
+<lib-overall-hours></lib-overall-hours>
+
+<lib-employee-summary></lib-employee-summary>

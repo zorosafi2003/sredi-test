@@ -1,0 +1,16 @@
+.overall-hours__container{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-gap: 10px;
+}
+
+:host {
+    display: block;
+background-color: #fff;
+border-radius: 10px;
+padding: 10px;
+}
+
+ag-charts{
+    width: 100%;
+}

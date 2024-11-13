@@ -14,13 +14,15 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BreakPointService } from '../../../../../core-lib/src/lib/settings/break-point.service';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NavbarCustomFormInterface } from '../form-interfaces/navbar-custom.form-interface';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { sharedDataActions } from '../../../../../core-lib/src/lib/stores/states/shared-data/shared-data.action';
 
 @Component({
   selector: 'lib-navbar-custom',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [MatIconModule, MatButtonModule, MatBadgeModule, CommonModule, MatFormFieldModule, MatInputModule,
-    MatDatepickerModule, MatDividerModule ,ReactiveFormsModule],
+    MatDatepickerModule, MatDividerModule, ReactiveFormsModule],
   templateUrl: './navbar-custom.component.html',
   styleUrl: './navbar-custom.component.scss'
 })
@@ -31,7 +33,7 @@ export class NavbarCustomComponent implements AfterViewInit {
   isSmallScreen = computed(() => this._BreakPointService.isSmallScreen());
   sidenavWidth = computed(() => this.isCollapsed() == false ? "280px" : "0px");
 
-  get fCtrls(){
+  get fCtrls() {
     return this.rForm.controls;
   }
 
@@ -43,12 +45,26 @@ export class NavbarCustomComponent implements AfterViewInit {
 
     this.rForm = this._FormBuilder.group<NavbarCustomFormInterface>({
       search: new FormControl(null),
-      dateFrom: new FormControl(new Date("1/1/2023")),
-      dateTo: new FormControl(new Date("12/31/2023")),
+      dateFrom: new FormControl(null),
+      dateTo: new FormControl(null),
     })
   }
 
   ngAfterViewInit(): void {
+    this.fCtrls.dateFrom.valueChanges.pipe(distinctUntilChanged(), debounceTime(500), takeUntilDestroyed(this._DestroyRef))
+      .subscribe(value => {
+        this._Store.dispatch(sharedDataActions.setNavbarDateFrom({ dateFrom: value }));
+      });
+
+    this.fCtrls.dateTo.valueChanges.pipe(distinctUntilChanged(), debounceTime(500), takeUntilDestroyed(this._DestroyRef))
+      .subscribe(value => {
+        this._Store.dispatch(sharedDataActions.setNavbarDateTo({ dateTo: value }));
+      });
+
+    this.rForm.patchValue({
+      dateFrom: new Date("1/1/2023"),
+      dateTo: new Date("12/31/2023")
+    });
   }
 
   onToggleCollapsed() {

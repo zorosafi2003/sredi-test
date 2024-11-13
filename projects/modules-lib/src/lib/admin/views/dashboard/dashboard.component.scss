@@ -1,0 +1,60 @@
+.dashboard__container {
+
+    .page-title {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 31.2px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color: #2A2A2A;
+        margin: 0px;
+    }
+
+    .selected-period__badge {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 21px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color: var(--Neutral-600, #5D5D5D);
+        background: #F0F0F0;
+        padding: 6px 8px;
+        border-radius: 10px;
+        margin-top: 8px;
+    }
+
+    .active-integration__container {
+        margin-top: 24px;
+
+        span:first-of-type {
+            color: var(--Neutral-800, #454545);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 20.8px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+        }
+
+        .integration__badge {
+            display: inline-block;
+            text-align: center;
+            line-height: 29px;
+            background: #C9F3FF;
+            width: 88px;
+            height: 29px;
+            gap: 8px;
+            border-radius: 60px;
+            opacity: 0px;
+            margin-left: 8px;
+
+            color: var(--Neutral-600, #5D5D5D);
+            font-size: 14px;
+            font-weight: 700;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+        }
+    }
+}

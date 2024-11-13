@@ -8,10 +8,11 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { OperationEffects } from '../../projects/core-lib/src/lib/stores/states/operations/operation.effect';
 import { operationReducer } from '../../projects/core-lib/src/lib/stores/states/operations/operation.reducer';
+import { sharedDataReducer } from '../../projects/core-lib/src/lib/stores/states/shared-data/shared-data.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideAnimationsAsync()
-    , provideStore({operations : operationReducer}) ,provideEffects([OperationEffects]),provideStoreDevtools({
+    , provideStore({ 'operations': operationReducer, 'shared-data': sharedDataReducer }), provideEffects([OperationEffects]), provideStoreDevtools({
       maxAge: 25,
       logOnly: true,
     })]

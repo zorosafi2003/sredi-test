@@ -1,0 +1,5 @@
+<p>Employee Summary</p>
+<ag-grid-angular [rowData]="rowData" [columnDefs]="colDefs"  (sortChanged)="onSortChange($event)"
+[pagination]="pagination" (paginationChanged)="onPaginationChange($event)"
+[paginationPageSize]="paginationPageSize"
+[paginationPageSizeSelector]="paginationPageSizeSelector"   class="ag-theme-quartz" style="height: 300px;" />
